@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Analytics Project - It's Ivy Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 animate-fadeIn">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-bold gradient-text">It's Ivy</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html#home" class="nav-link text-gray-700 hover:text-purple-600">Home</a>
+                    <a href="index.html#about" class="nav-link text-gray-700 hover:text-purple-600">About</a>
+                    <a href="index.html#experience" class="nav-link text-gray-700 hover:text-purple-600">Experience</a>
+                    <a href="index.html#skills" class="nav-link text-gray-700 hover:text-purple-600">Skills</a>
+                    <a href="projects.html" class="nav-link text-purple-600 font-semibold">Projects</a>
+                    <a href="index.html#contact" class="nav-link text-gray-700 hover:text-purple-600">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
+                <a href="index.html#home" class="block py-2 text-gray-700 hover:text-purple-600">Home</a>
+                <a href="index.html#about" class="block py-2 text-gray-700 hover:text-purple-600">About</a>
+                <a href="index.html#experience" class="block py-2 text-gray-700 hover:text-purple-600">Experience</a>
+                <a href="index.html#skills" class="block py-2 text-gray-700 hover:text-purple-600">Skills</a>
+                <a href="projects.html" class="block py-2 text-purple-600 font-semibold">Projects</a>
+                <a href="index.html#contact" class="block py-2 text-gray-700 hover:text-purple-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="pt-28 pb-8 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center space-x-2 text-gray-600">
+                <a href="index.html" class="hover:text-purple-600">Home</a>
+                <i class="fas fa-chevron-right text-sm"></i>
+                <a href="projects.html" class="hover:text-purple-600">Projects</a>
+                <i class="fas fa-chevron-right text-sm"></i>
+                <span class="text-purple-600">HR Analytics</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Header -->
+    <section class="py-12 bg-gradient-to-br from-purple-50 via-white to-blue-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="opacity-0 animate-fadeInUp">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-100 text-yellow-600 px-4 py-1 rounded-full text-sm font-semibold">Power BI</span>
+                        <span class="bg-blue-100 text-blue-600 px-4 py-1 rounded-full text-sm font-semibold">Data Visualization</span>
+                        <span class="bg-purple-100 text-purple-600 px-4 py-1 rounded-full text-sm font-semibold">Business Intelligence</span>
+                    </div>
+                    <h1 class="text-5xl font-bold mb-4">HR Analytics Dashboard</h1>
+                    <p class="text-xl text-gray-600 mb-6">
+                        A comprehensive Power BI solution for workforce management, providing actionable insights across headcount, turnover, leave, attendance, and performance metrics
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-calendar text-purple-600"></i>
+                            <span class="text-gray-600">2024-2025</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-user text-purple-600"></i>
+                            <span class="text-gray-600">Business Project</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-code text-purple-600"></i>
+                            <span class="text-gray-600">Power BI, DAX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8">Project Overview</h2>
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl shadow-lg p-8 mb-12">
+                    <h3 class="text-2xl font-bold mb-4 gradient-text">OBJECTIVE</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        The objective was to create a comprehensive HR analysis dashboard in Power BI where HR officers can gain 
+                        quick insights into a wide array of staff statistics, including headcount, leave utilisation, employee turnover, 
+                        time and attendance, and more. Imagine a one-stop shop that answers all your staff-related questions. The dashboard 
+                        aims to empower decision-makers with actionable information for effective workforce management, retention, succession 
+                        planning, and overall employee satisfaction.
+                    </p>
+                </div>
+
+                <!-- Key Statistics -->
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center stat-card">
+                        <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-file-alt text-purple-600 text-2xl"></i>
+                        </div>
+                        <h4 class="text-3xl font-bold gradient-text mb-2">7</h4>
+                        <p class="text-gray-600">Dashboard Pages</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center stat-card">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-blue-600 text-2xl"></i>
+                        </div>
+                        <h4 class="text-3xl font-bold gradient-text mb-2">556</h4>
+                        <p class="text-gray-600">Employees Tracked</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center stat-card">
+                        <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-percentage text-purple-600 text-2xl"></i>
+                        </div>
+                        <h4 class="text-3xl font-bold gradient-text mb-2">91%</h4>
+                        <p class="text-gray-600">Appraisal Completion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Pages -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8">Dashboard Pages</h2>
+                <div class="space-y-6">
+                    
+                    <!-- Overview Page -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-purple-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-home text-purple-600"></i>
+                            </div>
+                            <div class="w-full">
+                                <h3 class="text-xl font-bold mb-2">Overview Page</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    Acts as a brief preview for upper management consumption, providing high-level understanding of the workforce. 
+                                    Touches on headcount, staff movement, demographics, leave statistics, location and makeup of staff. Perfect for 
+                                    executive briefings and strategic planning sessions.
+                                </p>
+                                <div class="my-6">
+                                    <img src="./images/Project 2 - Overview.png" alt="HR Analytics Dashboard Overview" class="w-full rounded-lg shadow-md border border-gray-200">
+                                    <p class="text-sm text-gray-500 text-center mt-2">HR Analytics Dashboard - Overview Page showing key workforce metrics</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Headcount & Diversity -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-users text-blue-600"></i>
+                            </div>
+                            <div class="w-full">
+                                <h3 class="text-xl font-bold mb-2">Headcount & Diversity</h3>
+                                <p class="text-gray-600 leading-relaxed mb-3">
+                                    Delves deeper into workforce characteristics, illuminating gender makeup, unionisation percentage, average 
+                                    tenure, and period to retirement. Statistics can be drilled down by Division, Department, Functional Unit, 
+                                    Cadre, Job Category, Location and Date of Joining.
+                                </p>
+                                <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                                    <p class="text-gray-700"><strong>Key Insight:</strong> Majority of staff have tenure of less than 5 years, 
+                                    prompting discussions on turnover rate and measures to improve employee satisfaction.</p>
+                                </div>
+                                <div class="my-6">
+                                    <img src="./images/HeadCount & Diversity.png" alt="Headcount & Diversity Dashboard" class="w-full rounded-lg shadow-md border border-gray-200">
+                                    <p class="text-sm text-gray-500 text-center mt-2">Headcount & Diversity analysis with demographic breakdowns</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Annual Leave Summary -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-purple-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-calendar-alt text-purple-600"></i>
+                            </div>
+                            <div class="w-full">
+                                <h3 class="text-xl font-bold mb-2">Annual Leave Summary</h3>
+                                <p class="text-gray-600 leading-relaxed mb-3">
+                                    Features KPIs for leave liability, leave utilisation rate and end-of-year leave balance target. KPIs calculated 
+                                    on a prorated basis, allowing leave statistics to be viewed up to the period under review.
+                                </p>
+                                <div class="bg-purple-50 p-4 rounded-lg mb-4">
+                                    <p class="text-gray-700 mb-2"><strong>Key Insights:</strong></p>
+                                    <ul class="space-y-1 text-gray-700 ml-6">
+                                        <li>• Leave utilisation rate steadily increases as the year progresses</li>
+                                        <li>• Select few employees inflate average leave liability by utilizing little to no leave</li>
+                                        <li>• By September 2025, utilisation at 47% vs 75% target - urgent action needed</li>
+                                    </ul>
+                                </div>
+                                <div class="my-6">
+                                    <img src="./images/Annual leave summary.png" alt="Annual Leave Summary Dashboard" class="w-full rounded-lg shadow-md border border-gray-200">
+                                    <p class="text-sm text-gray-500 text-center mt-2">Annual Leave Summary with prorated KPIs and utilization tracking</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Staff Movement Summary -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-exchange-alt text-blue-600"></i>
+                            </div>
+                            <div class="w-full">
+                                <h3 class="text-xl font-bold mb-2">Staff Movement Summary</h3>
+                                <p class="text-gray-600 leading-relaxed mb-3">
+                                    Turnover analysis featuring KPIs such as new entrants, exits, internal hires, average tenure of active and 
+                                    inactive employees. Includes distribution of exit reasons and designation analysis.
+                                </p>
+                                <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                                    <p class="text-gray-700"><strong>Key Insight:</strong> Exits doubling the number of entrants may point to 
+                                    company strategy to reduce labour costs.</p>
+                                </div>
+                                <div class="my-6">
+                                    <img src="./images/Staff Movement Summary.png" alt="Staff Movement Summary Dashboard" class="w-full rounded-lg shadow-md border border-gray-200">
+                                    <p class="text-sm text-gray-500 text-center mt-2">Staff Movement Summary tracking turnover, exits, and new entrants</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Time & Attendance -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-purple-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-clock text-purple-600"></i>
+                            </div>
+                            <div class="w-full">
+                                <h3 class="text-xl font-bold mb-2">Time & Attendance</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    Tracks attendance habits of full-time office staff with KPIs for average time-in, time-out, work hours, 
+                                    attendance rate and standard workdays. Integrated with leave dataset for accuracy. Attendance rates displayed 
+                                    by department with drill-down to individual employees.
+                                </p>
+                                <div class="my-6">
+                                    <img src="./images/Attendance Summary.png" alt="Attendance Summary Dashboard" class="w-full rounded-lg shadow-md border border-gray-200">
+                                    <p class="text-sm text-gray-500 text-center mt-2">Time & Attendance tracking with detailed metrics by department</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Goal Setting Status -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-bullseye text-blue-600"></i>
+                            </div>
+                            <div class="w-full">
+                                <h3 class="text-xl font-bold mb-2">Goal Setting Status</h3>
+                                <p class="text-gray-600 leading-relaxed mb-3">
+                                    Tracks progress of performance appraisal process throughout the company as conducted within the HRM system. 
+                                    Can be utilised by department heads with row-level security to monitor their teams.
+                                </p>
+                                <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                                    <p class="text-gray-700 mb-2"><strong>Key Insights:</strong></p>
+                                    <ul class="space-y-1 text-gray-700 ml-6">
+                                        <li>• 478 of 556 staff enrolled for appraisal (78 exempted)</li>
+                                        <li>• 91% staff submitted self-evaluations</li>
+                                        <li>• 90% supervisors completed subordinate evaluations</li>
+                                        <li>• 87% reviewers submitted evaluations</li>
+                                        <li>• Overall 91% completion rate</li>
+                                    </ul>
+                                </div>
+                                <div class="my-6">
+                                    <img src="./images/Goal Setting Status.png" alt="Goal Setting Status Dashboard" class="w-full rounded-lg shadow-md border border-gray-200">
+                                    <p class="text-sm text-gray-500 text-center mt-2">Goal Setting Status tracking appraisal completion rates</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- End-of-Year Goal Review -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-purple-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-chart-line text-purple-600"></i>
+                            </div>
+                            <div class="w-full">
+                                <h3 class="text-xl font-bold mb-2">End-of-Year Goal Review Evaluation</h3>
+                                <p class="text-gray-600 leading-relaxed mb-3">
+                                    Analyzes how well employees have achieved year-start goals. Average ratings between 2-4, with most at midpoint of 3.
+                                </p>
+                                <div class="bg-purple-50 p-4 rounded-lg mb-4">
+                                    <p class="text-gray-700"><strong>Key Insight:</strong> Motors division skewed towards lower ratings (2-3), 
+                                    while Hospitality division showed higher ratings (3-4).</p>
+                                </div>
+                                <div class="my-6">
+                                    <img src="./images/End of year Goal review valuation.png" alt="End of Year Goal Review Dashboard - Overall" class="w-full rounded-lg shadow-md border border-gray-200">
+                                    <p class="text-sm text-gray-500 text-center mt-2">Overall End-of-Year Goal Review Evaluation across all departments</p>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-6 my-6">
+                                    <div>
+                                        <img src="./images/End of year Goal review valuation - Motor.png" alt="End of Year Goal Review - Motor Division" class="w-full rounded-lg shadow-md border border-gray-200">
+                                        <p class="text-sm text-gray-500 text-center mt-2">Motor Division ratings (2-3 range)</p>
+                                    </div>
+                                    <div>
+                                        <img src="./images/End of year Goal review valuation - Hospitality.png" alt="End of Year Goal Review - Hospitality Division" class="w-full rounded-lg shadow-md border border-gray-200">
+                                        <p class="text-sm text-gray-500 text-center mt-2">Hospitality Division ratings (3-4 range)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Used -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8">Technologies & Tools</h2>
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl shadow-lg p-8">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="font-bold text-lg mb-4 text-purple-600">Tools & Platforms</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-2"></i> Power BI Desktop</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-2"></i> Power BI Service</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-2"></i> Excel (Data Preparation)</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-2"></i> HRM System Integration</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-4 text-blue-600">Techniques & Features</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-600 mr-2"></i> DAX Calculations</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-600 mr-2"></i> Data Modeling</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-600 mr-2"></i> Row-Level Security</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-600 mr-2"></i> KPI Development</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-600 mr-2"></i> Interactive Visualizations</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-600 mr-2"></i> Drill-Down Analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Impact -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8">Business Impact</h2>
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-purple-600 text-xl mt-1"></i>
+                            <div>
+                                <span class="font-semibold">Enhanced Decision-Making:</span>
+                                <span class="text-gray-600"> Provides HR officers and leadership with instant access to critical workforce metrics, enabling data-driven strategic decisions.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-purple-600 text-xl mt-1"></i>
+                            <div>
+                                <span class="font-semibold">Improved Workforce Planning:</span>
+                                <span class="text-gray-600"> Turnover analysis and tenure tracking enable proactive succession planning and retention strategies.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-purple-600 text-xl mt-1"></i>
+                            <div>
+                                <span class="font-semibold">Leave Liability Management:</span>
+                                <span class="text-gray-600"> Prorated calculations and utilization tracking help minimize year-end leave liabilities and ensure compliance.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-purple-600 text-xl mt-1"></i>
+                            <div>
+                                <span class="font-semibold">Performance Visibility:</span>
+                                <span class="text-gray-600"> Real-time tracking of appraisal completion rates ensures accountability and timely performance reviews.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-purple-600 text-xl mt-1"></i>
+                            <div>
+                                <span class="font-semibold">Attendance Accountability:</span>
+                                <span class="text-gray-600"> Integration with leave data and shift-specific analysis enables accurate attendance monitoring and compliance tracking.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation to Other Projects -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex justify-between items-center">
+                    <a href="project-customer-segmentation.html" class="flex items-center space-x-2 text-purple-600 hover:text-purple-700 font-semibold transition">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Previous Project</span>
+                    </a>
+                    <a href="project-work-organiser.html" class="flex items-center space-x-2 text-purple-600 hover:text-purple-700 font-semibold transition">
+                        <span>Next Project</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-2">&copy; 2024 Ivy Karanja. All rights reserved.</p>
+            <p class="text-gray-400">Built with passion for data and analytics</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Animate elements on scroll
+        const animateOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.opacity-0').forEach(el => {
+            animateOnScroll.observe(el);
+        });
+    </script>
+</body>
+</html>

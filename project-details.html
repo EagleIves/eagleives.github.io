@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - It's Ivy Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .animate-slideInLeft {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        pre {
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .image-placeholder {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 animate-fadeIn">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-bold gradient-text">It's Ivy</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html#home" class="nav-link text-gray-700 hover:text-purple-600">Home</a>
+                    <a href="index.html#about" class="nav-link text-gray-700 hover:text-purple-600">About</a>
+                    <a href="index.html#skills" class="nav-link text-gray-700 hover:text-purple-600">Skills</a>
+                    <a href="projects.html" class="nav-link text-purple-600 font-semibold">Projects</a>
+                    <a href="index.html#contact" class="nav-link text-gray-700 hover:text-purple-600">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
+                <a href="index.html#home" class="block py-2 text-gray-700 hover:text-purple-600">Home</a>
+                <a href="index.html#about" class="block py-2 text-gray-700 hover:text-purple-600">About</a>
+                <a href="index.html#skills" class="block py-2 text-gray-700 hover:text-purple-600">Skills</a>
+                <a href="projects.html" class="block py-2 text-purple-600 font-semibold">Projects</a>
+                <a href="index.html#contact" class="block py-2 text-gray-700 hover:text-purple-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="pt-28 pb-8 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center space-x-2 text-gray-600">
+                <a href="index.html" class="hover:text-purple-600">Home</a>
+                <i class="fas fa-chevron-right text-sm"></i>
+                <a href="projects.html" class="hover:text-purple-600">Projects</a>
+                <i class="fas fa-chevron-right text-sm"></i>
+                <span class="text-purple-600" id="project-breadcrumb">Project Details</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Header -->
+    <section class="py-12 bg-gradient-to-br from-purple-50 via-white to-blue-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="opacity-0 animate-fadeInUp">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-purple-100 text-purple-600 px-4 py-1 rounded-full text-sm font-semibold">Machine Learning</span>
+                        <span class="bg-blue-100 text-blue-600 px-4 py-1 rounded-full text-sm font-semibold">Classification</span>
+                    </div>
+                    <h1 class="text-5xl font-bold mb-4" id="project-title">Customer Churn Prediction Model</h1>
+                    <p class="text-xl text-gray-600 mb-6" id="project-subtitle">
+                        A machine learning solution to predict customer churn with 92% accuracy
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-calendar text-purple-600"></i>
+                            <span class="text-gray-600">March 2024</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-clock text-purple-600"></i>
+                            <span class="text-gray-600">3 months</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-user text-purple-600"></i>
+                            <span class="text-gray-600">Solo Project</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300">
+                            <i class="fab fa-github mr-2"></i> View Code
+                        </a>
+                        <a href="#" class="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold border-2 border-purple-600 hover:bg-purple-50 transition duration-300">
+                            <i class="fas fa-external-link-alt mr-2"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Image -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto opacity-0 animate-fadeInUp delay-100">
+                <div class="image-placeholder rounded-xl shadow-2xl h-96 flex items-center justify-center">
+                    <i class="fas fa-robot text-white text-9xl"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 opacity-0 animate-fadeInUp">Project Overview</h2>
+                <div class="bg-white rounded-xl shadow-lg p-8 opacity-0 animate-fadeInUp delay-100">
+                    <h3 class="text-2xl font-bold mb-4 gradient-text">The Challenge</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        A telecommunications company was experiencing high customer churn rates, losing 
+                        approximately 15% of their customer base annually. They needed a predictive model 
+                        to identify customers at risk of churning so they could implement retention strategies 
+                        proactively.
+                    </p>
+                    <h3 class="text-2xl font-bold mb-4 gradient-text">The Solution</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        I developed a machine learning classification model using ensemble methods (Random Forest 
+                        and XGBoost) to predict customer churn. The model analyzes customer behavior patterns, 
+                        usage statistics, and demographic data to identify high-risk customers with 92% accuracy.
+                    </p>
+                    <h3 class="text-2xl font-bold mb-4 gradient-text">Impact</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        The implementation of this model enabled the company to reduce their churn rate by 23% 
+                        through targeted retention campaigns. The model now runs daily, automatically flagging 
+                        at-risk customers for the retention team to contact.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Metrics -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 text-center">Key Results</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="stat-card bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-xl text-center opacity-0 animate-fadeInUp delay-100">
+                        <div class="text-4xl font-bold text-purple-600 mb-2">92%</div>
+                        <p class="text-gray-600 font-semibold">Model Accuracy</p>
+                    </div>
+                    <div class="stat-card bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl text-center opacity-0 animate-fadeInUp delay-200">
+                        <div class="text-4xl font-bold text-blue-600 mb-2">23%</div>
+                        <p class="text-gray-600 font-semibold">Churn Reduction</p>
+                    </div>
+                    <div class="stat-card bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-xl text-center opacity-0 animate-fadeInUp delay-300">
+                        <div class="text-4xl font-bold text-purple-600 mb-2">$2.4M</div>
+                        <p class="text-gray-600 font-semibold">Annual Savings</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8">Methodology</h2>
+                <div class="space-y-6">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-purple-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                                <span class="text-purple-600 font-bold text-xl">1</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Data Collection & Preprocessing</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Gathered 3 years of customer data including demographics, service usage, 
+                                    billing information, and customer service interactions. Cleaned and preprocessed 
+                                    the data, handling missing values and outliers. Created 47 engineered features 
+                                    from raw data.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                                <span class="text-blue-600 font-bold text-xl">2</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Exploratory Data Analysis</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Conducted comprehensive EDA to understand churn patterns. Discovered that customers 
+                                    with month-to-month contracts had 3x higher churn rates. Identified top predictive 
+                                    features through correlation analysis and feature importance rankings.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-purple-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                                <span class="text-purple-600 font-bold text-xl">3</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Model Development</h3>
+                                <p class="text-gray-600 mb-4 leading-relaxed">
+                                    Trained multiple models including Logistic Regression, Random Forest, XGBoost, 
+                                    and Neural Networks. Used stratified k-fold cross-validation to ensure robust 
+                                    performance. Ensemble methods outperformed single models significantly.
+                                </p>
+                                <pre class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto"><code class="language-python">from sklearn.ensemble import RandomForestClassifier
+from xgboost import XGBClassifier
+from sklearn.model_selection import cross_val_score
+
+# Train Random Forest
+rf_model = RandomForestClassifier(
+    n_estimators=200,
+    max_depth=15,
+    min_samples_split=10,
+    random_state=42
+)
+rf_model.fit(X_train, y_train)
+
+# Train XGBoost
+xgb_model = XGBClassifier(
+    learning_rate=0.1,
+    n_estimators=150,
+    max_depth=7,
+    random_state=42
+)
+xgb_model.fit(X_train, y_train)
+
+# Evaluate with cross-validation
+rf_scores = cross_val_score(rf_model, X, y, cv=5)
+print(f"RF Accuracy: {rf_scores.mean():.3f}")</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                                <span class="text-blue-600 font-bold text-xl">4</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Model Optimization & Deployment</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Performed hyperparameter tuning using GridSearchCV and Bayesian optimization. 
+                                    Implemented the model in a production environment with daily batch predictions. 
+                                    Created an API endpoint for real-time predictions and integrated with CRM system.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Used -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8">Technologies & Tools</h2>
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl shadow-lg p-8">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="font-bold text-lg mb-4 text-purple-600">Programming & Libraries</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-2"></i> Python 3.10</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-2"></i> Scikit-learn</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-2"></i> XGBoost</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-2"></i> Pandas & NumPy</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-2"></i> Matplotlib & Seaborn</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-4 text-blue-600">Infrastructure & Tools</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-600 mr-2"></i> PostgreSQL</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-600 mr-2"></i> Docker</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-600 mr-2"></i> AWS (EC2, S3)</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-600 mr-2"></i> Flask API</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-600 mr-2"></i> Git & GitHub</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lessons Learned -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8">Key Takeaways</h2>
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-lightbulb text-yellow-500 text-xl mt-1"></i>
+                            <div>
+                                <span class="font-semibold">Feature Engineering is Critical:</span>
+                                <span class="text-gray-600"> Creating domain-specific features significantly improved model performance over using raw data alone.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-lightbulb text-yellow-500 text-xl mt-1"></i>
+                            <div>
+                                <span class="font-semibold">Class Imbalance Matters:</span>
+                                <span class="text-gray-600"> Implementing SMOTE and adjusting class weights was essential due to the imbalanced dataset (85/15 split).</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-lightbulb text-yellow-500 text-xl mt-1"></i>
+                            <div>
+                                <span class="font-semibold">Model Interpretability:</span>
+                                <span class="text-gray-600"> Using SHAP values to explain predictions was crucial for stakeholder buy-in and trust in the model.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-lightbulb text-yellow-500 text-xl mt-1"></i>
+                            <div>
+                                <span class="font-semibold">Production Readiness:</span>
+                                <span class="text-gray-600"> Building monitoring and alerting systems is as important as model accuracy for long-term success.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation to Other Projects -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex justify-between items-center">
+                    <a href="projects.html" class="flex items-center space-x-2 text-purple-600 hover:text-purple-700 font-semibold transition">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to Projects</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-2 text-purple-600 hover:text-purple-700 font-semibold transition">
+                        <span>Next Project</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-2">&copy; 2024 It's Ivy. All rights reserved.</p>
+            <p class="text-gray-400">Built with passion for data and analytics</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Animate elements on scroll
+        const animateOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.opacity-0').forEach(el => {
+            animateOnScroll.observe(el);
+        });
+
+        // Get project ID from URL (for dynamic content loading)
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('id');
+        
+        // You can add logic here to load different project content based on the ID
+        // For now, this is a template that can be customized
+    </script>
+</body>
+</html>

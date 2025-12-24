@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Work Organiser - It's Ivy Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 animate-fadeIn">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-bold gradient-text">It's Ivy</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html#home" class="nav-link text-gray-700 hover:text-purple-600">Home</a>
+                    <a href="index.html#about" class="nav-link text-gray-700 hover:text-purple-600">About</a>
+                    <a href="index.html#experience" class="nav-link text-gray-700 hover:text-purple-600">Experience</a>
+                    <a href="index.html#skills" class="nav-link text-gray-700 hover:text-purple-600">Skills</a>
+                    <a href="projects.html" class="nav-link text-purple-600 font-semibold">Projects</a>
+                    <a href="index.html#contact" class="nav-link text-gray-700 hover:text-purple-600">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
+                <a href="index.html#home" class="block py-2 text-gray-700 hover:text-purple-600">Home</a>
+                <a href="index.html#about" class="block py-2 text-gray-700 hover:text-purple-600">About</a>
+                <a href="index.html#experience" class="block py-2 text-gray-700 hover:text-purple-600">Experience</a>
+                <a href="index.html#skills" class="block py-2 text-gray-700 hover:text-purple-600">Skills</a>
+                <a href="projects.html" class="block py-2 text-purple-600 font-semibold">Projects</a>
+                <a href="index.html#contact" class="block py-2 text-gray-700 hover:text-purple-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="pt-28 pb-8 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center space-x-2 text-gray-600">
+                <a href="index.html" class="hover:text-purple-600">Home</a>
+                <i class="fas fa-chevron-right text-sm"></i>
+                <a href="projects.html" class="hover:text-purple-600">Projects</a>
+                <i class="fas fa-chevron-right text-sm"></i>
+                <span class="text-purple-600">Dynamic Work Organiser</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Header -->
+    <section class="py-12 bg-gradient-to-br from-purple-50 via-white to-blue-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="opacity-0 animate-fadeInUp">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-green-100 text-green-600 px-4 py-1 rounded-full text-sm font-semibold">Excel</span>
+                        <span class="bg-blue-100 text-blue-600 px-4 py-1 rounded-full text-sm font-semibold">VBA</span>
+                        <span class="bg-purple-100 text-purple-600 px-4 py-1 rounded-full text-sm font-semibold">Automation</span>
+                    </div>
+                    <h1 class="text-5xl font-bold mb-4">Dynamic Work Organiser</h1>
+                    <p class="text-xl text-gray-600 mb-6">
+                        An advanced Excel-based task management solution with VBA automation, dynamic named ranges, and intelligent workflow tracking
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-calendar text-purple-600"></i>
+                            <span class="text-gray-600">2024</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-user text-purple-600"></i>
+                            <span class="text-gray-600">Productivity Tool</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-code text-purple-600"></i>
+                            <span class="text-gray-600">Excel, VBA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8">What Is It?</h2>
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl shadow-lg p-8 mb-12">
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        A simple yet powerful to-do list tracker and dashboard that provides a comprehensive view of pending tasks, 
+                        responsible parties, and upcoming deadlines. This isn't just another spreadsheet – it's an intelligent workflow 
+                        management system built entirely in Excel.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        This document utilises several advanced Excel tools and features, namely: Visual Basic macros, dynamic named ranges, 
+                        conditional formatting, and sheet navigation buttons. Update your list of completed tasks with the click of a button 
+                        and watch your progress unfold automatically.
+                    </p>
+                </div>
+
+                <!-- Key Statistics -->
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center stat-card">
+                        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-file-excel text-green-600 text-2xl"></i>
+                        </div>
+                        <h4 class="text-3xl font-bold gradient-text mb-2">4</h4>
+                        <p class="text-gray-600">Integrated Sheets</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center stat-card">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-robot text-blue-600 text-2xl"></i>
+                        </div>
+                        <h4 class="text-3xl font-bold gradient-text mb-2">100%</h4>
+                        <p class="text-gray-600">Automated Workflow</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center stat-card">
+                        <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-clock text-purple-600 text-2xl"></i>
+                        </div>
+                        <h4 class="text-3xl font-bold gradient-text mb-2">Real-Time</h4>
+                        <p class="text-gray-600">Status Updates</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features & Tools -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8">Features & Tools</h2>
+                <div class="space-y-6">
+                    
+                    <!-- Interface -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-purple-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                                <span class="text-purple-600 font-bold text-xl">1</span>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold mb-2">Interface Dashboard</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    The Interface serves as the command center, summarising all tasks according to their deadline and current status. 
+                                    Features include:
+                                </p>
+                                <ul class="space-y-2 text-gray-700 ml-6 mb-4">
+                                    <li>• Page navigation buttons to full To Do List, Completed Tasks, and standardised list entries</li>
+                                    <li>• Automatic updates reflecting changes in work statuses</li>
+                                    <li>• Visual summary of tasks by priority and deadline</li>
+                                    <li>• Quick access to all key sections of the organiser</li>
+                                </ul>
+                                <div class="my-6">
+                                    <img src="./images/Project 3 - Interface.png" alt="Work Organiser Interface Dashboard" class="w-full rounded-lg shadow-md border border-gray-200">
+                                    <p class="text-sm text-gray-500 text-center mt-2">Main dashboard interface showing task summaries and navigation buttons</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- To Do List -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                                <span class="text-blue-600 font-bold text-xl">2</span>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold mb-2">To Do List</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    The heart of the system, detailing all ongoing workstreams and tasks to be completed.
+                                </p>
+                                <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                                    <p class="font-semibold text-gray-800 mb-2">Smart Deadline Highlighting:</p>
+                                    <ul class="space-y-1 text-gray-700 ml-6">
+                                        <li>• <span class="text-yellow-600 font-semibold">Amber</span> highlighting for tasks due this week</li>
+                                        <li>• <span class="text-red-600 font-semibold">Red</span> highlighting for overdue tasks</li>
+                                        <li>• Automatic archiving when tasks marked as complete</li>
+                                    </ul>
+                                </div>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    Tasks marked as complete are automatically copied to the "Completed" sheet for archiving, triggered by 
+                                    changing the status from "In progress" to "Completed".
+                                </p>
+                                <div class="my-6">
+                                    <img src="./images/Project 3 - To Do List.png" alt="To Do List with Color Coding" class="w-full rounded-lg shadow-md border border-gray-200">
+                                    <p class="text-sm text-gray-500 text-center mt-2">To Do List with color-coded deadline highlighting (amber and red)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Completed List -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                                <span class="text-green-600 font-bold text-xl">3</span>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold mb-2">Completed Tasks Archive</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    An automated archiving system that maintains a historical record of completed work:
+                                </p>
+                                <ul class="space-y-2 text-gray-700 ml-6 mb-4">
+                                    <li>• Automatic copying of completed tasks from the To Do List</li>
+                                    <li>• Sort button to arrange tasks by deadline in ascending order</li>
+                                    <li>• Provides performance tracking and accountability records</li>
+                                    <li>• Useful for progress reports and retrospective analysis</li>
+                                </ul>
+                                <div class="my-6">
+                                    <img src="./images/Project 3 - Completed List.png" alt="Completed Tasks Archive" class="w-full rounded-lg shadow-md border border-gray-200">
+                                    <p class="text-sm text-gray-500 text-center mt-2">Completed tasks archive with sort functionality</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lists Page -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-purple-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                                <span class="text-purple-600 font-bold text-xl">4</span>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold mb-2">Dynamic Lists Management</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    The backend configuration page that powers the entire system's flexibility:
+                                </p>
+                                <ul class="space-y-2 text-gray-700 ml-6 mb-4">
+                                    <li>• Hosts named ranges and data validation lists</li>
+                                    <li>• Any additions automatically added to saved named ranges</li>
+                                    <li>• Ensures data consistency across all sheets</li>
+                                    <li>• Easy customization for different team structures and workflows</li>
+                                </ul>
+                                <div class="my-6">
+                                    <img src="./images/Project 3 - Lists Page.png" alt="Dynamic Lists Management Page" class="w-full rounded-lg shadow-md border border-gray-200">
+                                    <p class="text-sm text-gray-500 text-center mt-2">Lists page managing standardised entries for projects and statuses</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Features -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8">Advanced Excel Techniques</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    
+                    <div class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-6 shadow-lg">
+                        <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-code text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">VBA Macros</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li>• Automated task archiving on status change</li>
+                            <li>• One-click sorting functionality</li>
+                            <li>• Dynamic sheet navigation</li>
+                            <li>• Custom event triggers</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 shadow-lg">
+                        <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-list text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Dynamic Named Ranges</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li>• Self-expanding data ranges</li>
+                            <li>• Automatic dropdown updates</li>
+                            <li>• Reference management</li>
+                            <li>• Formula consistency</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-green-50 to-white rounded-xl p-6 shadow-lg">
+                        <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-palette text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Conditional Formatting</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li>• Date-based color coding</li>
+                            <li>• Priority highlighting</li>
+                            <li>• Status indicators</li>
+                            <li>• Visual progress tracking</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-6 shadow-lg">
+                        <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-database text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Data Validation</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li>• Dropdown menus for consistency</li>
+                            <li>• Input restrictions</li>
+                            <li>• Error prevention</li>
+                            <li>• Standardised entries</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8">Key Benefits</h2>
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-green-600 text-xl mt-1"></i>
+                            <div>
+                                <span class="font-semibold">Zero Manual Tracking:</span>
+                                <span class="text-gray-600"> Automated status updates and archiving eliminate the need for manual task management.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-green-600 text-xl mt-1"></i>
+                            <div>
+                                <span class="font-semibold">Visual Priority Management:</span>
+                                <span class="text-gray-600"> Color-coded deadlines make it immediately clear which tasks need urgent attention.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-green-600 text-xl mt-1"></i>
+                            <div>
+                                <span class="font-semibold">Historical Records:</span>
+                                <span class="text-gray-600"> Automatic archiving creates a complete audit trail of completed work for performance reviews.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-green-600 text-xl mt-1"></i>
+                            <div>
+                                <span class="font-semibold">Team Collaboration:</span>
+                                <span class="text-gray-600"> Clear responsibility assignments and status visibility enable better team coordination.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-green-600 text-xl mt-1"></i>
+                            <div>
+                                <span class="font-semibold">Easy Customization:</span>
+                                <span class="text-gray-600"> Dynamic named ranges and standardised lists make it simple to adapt to any workflow.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-green-600 text-xl mt-1"></i>
+                            <div>
+                                <span class="font-semibold">No Additional Software:</span>
+                                <span class="text-gray-600"> Built entirely in Excel – no subscriptions, installations, or learning curves required.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8">Perfect For</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-6 text-center">
+                        <i class="fas fa-users text-purple-600 text-4xl mb-3"></i>
+                        <h4 class="font-bold mb-2">Teams</h4>
+                        <p class="text-gray-600 text-sm">Coordinate work across multiple team members with clear accountability</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 text-center">
+                        <i class="fas fa-project-diagram text-blue-600 text-4xl mb-3"></i>
+                        <h4 class="font-bold mb-2">Project Managers</h4>
+                        <p class="text-gray-600 text-sm">Track multiple workstreams and ensure nothing falls through the cracks</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-6 text-center">
+                        <i class="fas fa-user-tie text-purple-600 text-4xl mb-3"></i>
+                        <h4 class="font-bold mb-2">Professionals</h4>
+                        <p class="text-gray-600 text-sm">Manage personal tasks and professional responsibilities in one place</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-12 bg-gradient-to-br from-purple-50 to-blue-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">See It In Action</h2>
+                <p class="text-gray-600 mb-8 text-lg">
+                    Want to see how the Dynamic Work Organiser can transform your task management? Check out the demo or get in touch!
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300">
+                        <i class="fas fa-play-circle mr-2"></i> See How It Works
+                    </a>
+                    <a href="index.html#contact" class="border-2 border-purple-600 text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition duration-300">
+                        <i class="fas fa-envelope mr-2"></i> Request Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation to Other Projects -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex justify-between items-center">
+                    <a href="project-hr-analytics.html" class="flex items-center space-x-2 text-purple-600 hover:text-purple-700 font-semibold transition">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Previous Project</span>
+                    </a>
+                    <a href="projects.html" class="flex items-center space-x-2 text-purple-600 hover:text-purple-700 font-semibold transition">
+                        <span>Back to Projects</span>
+                        <i class="fas fa-th"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-2">&copy; 2024 Ivy Karanja. All rights reserved.</p>
+            <p class="text-gray-400">Built with passion for data and analytics</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Animate elements on scroll
+        const animateOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.opacity-0').forEach(el => {
+            animateOnScroll.observe(el);
+        });
+    </script>
+</body>
+</html>
